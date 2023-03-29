@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2023 at 08:08 PM
+-- Generation Time: Mar 29, 2023 at 06:29 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,8 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `email`, `_password`) VALUES
-(10011, 'aa@gmail.com', 'a1234'),
-(10012, 'ab@gmail.com', 'a1234');
+(10011, 'aa@gmail.com', 'A1234'),
+(10012, 'ab@gmail.com', 'A1234');
 
 -- --------------------------------------------------------
 
@@ -79,6 +79,13 @@ CREATE TABLE `employee` (
   `a_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `name`, `nid`, `address`, `phone`, `designation`, `_status`, `salary`, `start_time`, `end_time`, `a_id`) VALUES
+(5001, 'Abul Kalam', 'AB100200', 'Rotonpur,Noakhali', '0170000', 'Security Guard', 1, 5000, '2022-03-01', NULL, 10011);
+
 -- --------------------------------------------------------
 
 --
@@ -87,9 +94,15 @@ CREATE TABLE `employee` (
 
 CREATE TABLE `flat` (
   `id` int(11) NOT NULL,
-  `ownerId` int(11) NOT NULL,
-  `_password` varchar(20) DEFAULT NULL
+  `ownerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `flat`
+--
+
+INSERT INTO `flat` (`id`, `ownerId`) VALUES
+(11, 20011);
 
 -- --------------------------------------------------------
 
@@ -103,8 +116,16 @@ CREATE TABLE `flatowner` (
   `nid` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
   `phone` varchar(30) NOT NULL,
-  `_status` smallint(6) NOT NULL
+  `_status` smallint(6) NOT NULL,
+  `_password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `flatowner`
+--
+
+INSERT INTO `flatowner` (`id`, `name`, `nid`, `address`, `phone`, `_status`, `_password`) VALUES
+(20011, 'Majid Khan', 'BG2221111', 'Nurpur,Chittagong', '01223344', 1, 'F1234');
 
 -- --------------------------------------------------------
 
@@ -117,6 +138,13 @@ CREATE TABLE `guard` (
   `e_id` int(11) DEFAULT NULL,
   `_password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `guard`
+--
+
+INSERT INTO `guard` (`id`, `e_id`, `_password`) VALUES
+(40011, 5001, 'G1234');
 
 -- --------------------------------------------------------
 
@@ -159,8 +187,16 @@ CREATE TABLE `tenant` (
   `nid` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
   `phone` varchar(20) NOT NULL,
-  `_status` smallint(6) DEFAULT NULL
+  `_status` smallint(6) DEFAULT NULL,
+  `_password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tenant`
+--
+
+INSERT INTO `tenant` (`id`, `flatId`, `name`, `nid`, `address`, `phone`, `_status`, `_password`) VALUES
+(30011, 11, 'Ratul Ahmed', 'GH123435', 'Moghbazar,Dhaka', '0981234', 1, 'T1234');
 
 --
 -- Indexes for dumped tables
