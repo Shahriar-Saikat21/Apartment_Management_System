@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2023 at 06:29 AM
+-- Generation Time: Mar 30, 2023 at 08:48 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
+  `f_id` int(11) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `_password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -37,9 +38,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `email`, `_password`) VALUES
-(10011, 'aa@gmail.com', 'A1234'),
-(10012, 'ab@gmail.com', 'A1234');
+INSERT INTO `admin` (`id`, `f_id`, `email`, `_password`) VALUES
+(10011, 20011, 'aa@gmail.com', 'A1234');
 
 -- --------------------------------------------------------
 
@@ -206,7 +206,8 @@ INSERT INTO `tenant` (`id`, `flatId`, `name`, `nid`, `address`, `phone`, `_statu
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `f_id` (`f_id`);
 
 --
 -- Indexes for table `bills`
@@ -266,6 +267,12 @@ ALTER TABLE `tenant`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`f_id`) REFERENCES `flatowner` (`id`);
 
 --
 -- Constraints for table `bills`

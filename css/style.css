@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Roboto&display=swap');
+
+.section{
+    background: linear-gradient(rgb(0,0,0,0.5),rgb(0,0,0,0.5)), url(../image/13.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+}
+
+.hero{
+    overflow: auto;
+}
+
+.logo h1{
+    color: #ffffff;
+    font-family: 'Changa One', cursive;
+}
+
+.formDesign{
+    background-color: #eeeeee !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 650;
+    border-radius: 5px;
+}
+
+.btn-primary{
+    background-color: #47B5FF !important;
+    border: none;
+}
+
+.btn-primary:hover{
+    background-color: #1363DF !important;
+}
+
+.bg-light{
+    background-color: #06283D !important;
+}
+
+
+
+
+
+
+
+
