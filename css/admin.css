@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Roboto&display=swap');
+
+.bodyBg{
+    background-color: #eeeeee;
+}
+
+.bg-body-tertiary{
+    background-color: #06283D !important;
+}
+
+.navbar-brand{
+    color: #ffffff !important;
+    font-family: 'Changa One', cursive;
+}
+
+.nav-link{
+    color: #ffffff !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}

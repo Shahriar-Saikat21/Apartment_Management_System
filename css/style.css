@@ -40,6 +40,12 @@
     background-color: #06283D !important;
 }
 
+.errorMsg{
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
 
 
 
