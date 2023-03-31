@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2023 at 08:48 AM
+-- Generation Time: Mar 31, 2023 at 06:01 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -28,35 +28,37 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `f_id` int(11) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `_password` varchar(20) NOT NULL
+  `id` varchar(20) NOT NULL,
+  `ownerId` varchar(20) DEFAULT NULL,
+  `_password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `f_id`, `email`, `_password`) VALUES
-(10011, 20011, 'aa@gmail.com', 'A1234');
+INSERT INTO `admin` (`id`, `ownerId`, `_password`) VALUES
+('A100', 'F100', 'A1234');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bills`
+-- Table structure for table `bill`
 --
 
-CREATE TABLE `bills` (
-  `f_id` int(11) NOT NULL,
-  `t_id` int(11) NOT NULL,
-  `electricity` float DEFAULT NULL,
-  `water` float DEFAULT NULL,
-  `gas` float DEFAULT NULL,
-  `rent` float DEFAULT NULL,
-  `maintenance` float DEFAULT NULL,
+CREATE TABLE `bill` (
+  `tenant_id` varchar(20) NOT NULL,
+  `flat_id` varchar(20) NOT NULL,
+  `rent` int(11) DEFAULT NULL,
+  `maintenance` int(11) DEFAULT NULL,
+  `e_bill` float DEFAULT NULL,
+  `e_ref` varchar(50) DEFAULT NULL,
+  `g_bill` float DEFAULT NULL,
+  `g_ref` varchar(50) DEFAULT NULL,
+  `w_bill` float DEFAULT NULL,
+  `w_ref` varchar(50) DEFAULT NULL,
   `_month` varchar(20) DEFAULT NULL,
-  `_year` int(11) DEFAULT NULL
+  `_year` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -66,43 +68,25 @@ CREATE TABLE `bills` (
 --
 
 CREATE TABLE `employee` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `nid` varchar(50) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `phone` varchar(20) NOT NULL,
+  `id` varchar(20) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `nid` varchar(50) DEFAULT NULL,
   `designation` varchar(20) DEFAULT NULL,
-  `_status` smallint(6) NOT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
   `salary` int(11) DEFAULT NULL,
+  `_status` smallint(6) DEFAULT NULL,
+  `adminId` varchar(20) DEFAULT NULL,
   `start_time` date DEFAULT NULL,
-  `end_time` date DEFAULT NULL,
-  `a_id` int(11) DEFAULT NULL
+  `end_time` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `name`, `nid`, `address`, `phone`, `designation`, `_status`, `salary`, `start_time`, `end_time`, `a_id`) VALUES
-(5001, 'Abul Kalam', 'AB100200', 'Rotonpur,Noakhali', '0170000', 'Security Guard', 1, 5000, '2022-03-01', NULL, 10011);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `flat`
---
-
-CREATE TABLE `flat` (
-  `id` int(11) NOT NULL,
-  `ownerId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `flat`
---
-
-INSERT INTO `flat` (`id`, `ownerId`) VALUES
-(11, 20011);
+INSERT INTO `employee` (`id`, `name`, `nid`, `designation`, `address`, `phone`, `salary`, `_status`, `adminId`, `start_time`, `end_time`) VALUES
+('E100', 'Abdul Aziz', 'BGD000999', 'Security Guard', 'Uzirpur,Barishal', '0112223', 8000, 1, 'A100', '2022-12-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -111,13 +95,13 @@ INSERT INTO `flat` (`id`, `ownerId`) VALUES
 --
 
 CREATE TABLE `flatowner` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `nid` varchar(50) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `phone` varchar(30) NOT NULL,
-  `_status` smallint(6) NOT NULL,
-  `_password` varchar(20) NOT NULL
+  `id` varchar(20) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `nid` varchar(50) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `_status` smallint(6) DEFAULT NULL,
+  `_password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -125,7 +109,25 @@ CREATE TABLE `flatowner` (
 --
 
 INSERT INTO `flatowner` (`id`, `name`, `nid`, `address`, `phone`, `_status`, `_password`) VALUES
-(20011, 'Majid Khan', 'BG2221111', 'Nurpur,Chittagong', '01223344', 1, 'F1234');
+('F100', 'Rakib Khan', 'BGD100200', 'RotonPur,Noakhali', '0112233', 1, 'F1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `flats`
+--
+
+CREATE TABLE `flats` (
+  `id` varchar(20) NOT NULL,
+  `ownerId` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `flats`
+--
+
+INSERT INTO `flats` (`id`, `ownerId`) VALUES
+('1A', 'F100');
 
 -- --------------------------------------------------------
 
@@ -134,8 +136,8 @@ INSERT INTO `flatowner` (`id`, `name`, `nid`, `address`, `phone`, `_status`, `_p
 --
 
 CREATE TABLE `guard` (
-  `id` int(11) NOT NULL,
-  `e_id` int(11) DEFAULT NULL,
+  `id` varchar(20) NOT NULL,
+  `employee_Id` varchar(20) DEFAULT NULL,
   `_password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -143,8 +145,8 @@ CREATE TABLE `guard` (
 -- Dumping data for table `guard`
 --
 
-INSERT INTO `guard` (`id`, `e_id`, `_password`) VALUES
-(40011, 5001, 'G1234');
+INSERT INTO `guard` (`id`, `employee_Id`, `_password`) VALUES
+('G100', 'E100', 'G1234');
 
 -- --------------------------------------------------------
 
@@ -153,12 +155,10 @@ INSERT INTO `guard` (`id`, `e_id`, `_password`) VALUES
 --
 
 CREATE TABLE `guest` (
+  `flat_id` varchar(20) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
-  `f_id` int(11) NOT NULL,
-  `t_id` int(11) NOT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `_time` date DEFAULT NULL
+  `phone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -168,9 +168,9 @@ CREATE TABLE `guest` (
 --
 
 CREATE TABLE `message` (
-  `f_id` int(11) NOT NULL,
-  `t_id` int(11) NOT NULL,
-  `body` varchar(300) DEFAULT NULL,
+  `tenant_id` varchar(20) NOT NULL,
+  `flat_id` varchar(20) NOT NULL,
+  `body` varchar(500) DEFAULT NULL,
   `_time` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -181,22 +181,22 @@ CREATE TABLE `message` (
 --
 
 CREATE TABLE `tenant` (
-  `id` int(11) NOT NULL,
-  `flatId` int(11) DEFAULT NULL,
-  `name` varchar(50) NOT NULL,
-  `nid` varchar(50) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `phone` varchar(20) NOT NULL,
+  `id` varchar(20) NOT NULL,
+  `flat_Id` varchar(20) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `nid` varchar(20) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
   `_status` smallint(6) DEFAULT NULL,
-  `_password` varchar(20) NOT NULL
+  `_password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tenant`
 --
 
-INSERT INTO `tenant` (`id`, `flatId`, `name`, `nid`, `address`, `phone`, `_status`, `_password`) VALUES
-(30011, 11, 'Ratul Ahmed', 'GH123435', 'Moghbazar,Dhaka', '0981234', 1, 'T1234');
+INSERT INTO `tenant` (`id`, `flat_Id`, `name`, `nid`, `address`, `phone`, `_status`, `_password`) VALUES
+('T100', '1A', 'Ratul Ahmed', 'BGD123435', 'Moghbazar,Dhaka', '0981234', 1, 'T1234');
 
 --
 -- Indexes for dumped tables
@@ -207,28 +207,21 @@ INSERT INTO `tenant` (`id`, `flatId`, `name`, `nid`, `address`, `phone`, `_statu
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `f_id` (`f_id`);
+  ADD KEY `ownerId` (`ownerId`);
 
 --
--- Indexes for table `bills`
+-- Indexes for table `bill`
 --
-ALTER TABLE `bills`
-  ADD PRIMARY KEY (`f_id`,`t_id`),
-  ADD KEY `t_id` (`t_id`);
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`tenant_id`,`flat_id`),
+  ADD KEY `flat_id` (`flat_id`);
 
 --
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `a_id` (`a_id`);
-
---
--- Indexes for table `flat`
---
-ALTER TABLE `flat`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ownerId` (`ownerId`);
+  ADD KEY `adminId` (`adminId`);
 
 --
 -- Indexes for table `flatowner`
@@ -237,32 +230,38 @@ ALTER TABLE `flatowner`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `flats`
+--
+ALTER TABLE `flats`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ownerId` (`ownerId`);
+
+--
 -- Indexes for table `guard`
 --
 ALTER TABLE `guard`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `e_id` (`e_id`);
+  ADD KEY `employee_Id` (`employee_Id`);
 
 --
 -- Indexes for table `guest`
 --
 ALTER TABLE `guest`
-  ADD PRIMARY KEY (`f_id`,`t_id`),
-  ADD KEY `t_id` (`t_id`);
+  ADD PRIMARY KEY (`flat_id`);
 
 --
 -- Indexes for table `message`
 --
 ALTER TABLE `message`
-  ADD PRIMARY KEY (`f_id`,`t_id`),
-  ADD KEY `t_id` (`t_id`);
+  ADD PRIMARY KEY (`tenant_id`,`flat_id`),
+  ADD KEY `flat_id` (`flat_id`);
 
 --
 -- Indexes for table `tenant`
 --
 ALTER TABLE `tenant`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `flatId` (`flatId`);
+  ADD KEY `flat_Id` (`flat_Id`);
 
 --
 -- Constraints for dumped tables
@@ -272,52 +271,51 @@ ALTER TABLE `tenant`
 -- Constraints for table `admin`
 --
 ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`f_id`) REFERENCES `flatowner` (`id`);
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`ownerId`) REFERENCES `flatowner` (`id`);
 
 --
--- Constraints for table `bills`
+-- Constraints for table `bill`
 --
-ALTER TABLE `bills`
-  ADD CONSTRAINT `bills_ibfk_1` FOREIGN KEY (`f_id`) REFERENCES `flat` (`id`),
-  ADD CONSTRAINT `bills_ibfk_2` FOREIGN KEY (`t_id`) REFERENCES `tenant` (`id`);
+ALTER TABLE `bill`
+  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`tenant_id`) REFERENCES `tenant` (`id`),
+  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`flat_id`) REFERENCES `flats` (`id`);
 
 --
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
-  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`a_id`) REFERENCES `admin` (`id`);
+  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`adminId`) REFERENCES `admin` (`id`);
 
 --
--- Constraints for table `flat`
+-- Constraints for table `flats`
 --
-ALTER TABLE `flat`
-  ADD CONSTRAINT `flat_ibfk_1` FOREIGN KEY (`ownerId`) REFERENCES `flatowner` (`id`);
+ALTER TABLE `flats`
+  ADD CONSTRAINT `flats_ibfk_1` FOREIGN KEY (`ownerId`) REFERENCES `flatowner` (`id`);
 
 --
 -- Constraints for table `guard`
 --
 ALTER TABLE `guard`
-  ADD CONSTRAINT `guard_ibfk_1` FOREIGN KEY (`e_id`) REFERENCES `employee` (`id`);
+  ADD CONSTRAINT `guard_ibfk_1` FOREIGN KEY (`employee_Id`) REFERENCES `employee` (`id`);
 
 --
 -- Constraints for table `guest`
 --
 ALTER TABLE `guest`
-  ADD CONSTRAINT `guest_ibfk_1` FOREIGN KEY (`f_id`) REFERENCES `flat` (`id`),
-  ADD CONSTRAINT `guest_ibfk_2` FOREIGN KEY (`t_id`) REFERENCES `tenant` (`id`);
+  ADD CONSTRAINT `guest_ibfk_1` FOREIGN KEY (`flat_id`) REFERENCES `flats` (`id`);
 
 --
 -- Constraints for table `message`
 --
 ALTER TABLE `message`
-  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`f_id`) REFERENCES `flat` (`id`),
-  ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`t_id`) REFERENCES `tenant` (`id`);
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`tenant_id`) REFERENCES `tenant` (`id`),
+  ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`flat_id`) REFERENCES `flats` (`id`);
 
 --
 -- Constraints for table `tenant`
 --
 ALTER TABLE `tenant`
-  ADD CONSTRAINT `tenant_ibfk_1` FOREIGN KEY (`flatId`) REFERENCES `flat` (`id`);
+  ADD CONSTRAINT `tenant_ibfk_1` FOREIGN KEY (`flat_Id`) REFERENCES `flats` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
