@@ -8,55 +8,51 @@
         $pass = htmlspecialchars($_POST['pass']);
 
         $table = "";
-        $user = "";
         $flag = "";
-        
-        if(preg_match("/^a-zA-Z]/",$id) || preg_match("/^[!@#\\$%\\^\\&*\\)\\(+=._-]/",$id) ||
-        preg_match("/[a-zA-Z]/",$id)){
-            $error = "Invalid ID or Password";
-            exit();
-        }else if(preg_match("/^100/",$id)){
+
+        if(preg_match("/^A/",$id)){
             $table = "admin";
-            $user = (int)$id;
             $flag = 1;
-        }else if(preg_match("/^200/",$id)){
+        }else if(preg_match("/^F/",$id)){
             $table = "flatowner";
-            $user = (int)$id;
             $flag = 2;
-        }else if(preg_match("/^300/",$id)){
+        }else if(preg_match("/^T/",$id)){
             $table = "tenant";
-            $user = (int)$id;
             $flag = 3;
-        }else if(preg_match("/^400/",$id)){
+        }else if(preg_match("/^G/",$id)){
             $table = "guard";
-            $user = (int)$id;
             $flag = 4;
         }else{
-            $error = "Invalid ID or Password"; 
-            exit();
+            $flag = 0;
         }
 
-
-        $sql = "SELECT * FROM $table WHERE id = '$user' AND _password = '$pass'";
-        $result = mysqli_query($con,$sql);
-
-        $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
-        mysqli_free_result($result);
-        mysqli_close($con);
-
-        if(empty($record)){
+        if($flag==0){
             $error = "Invalid ID or Password";
         }else{
-            if($flag == 1){
-                header("Location:adminPanel/adminAccount.php");
-            }else if($flag == 2){
-                header("Location:flatOwnerPanel/flatOwnerProfile.php");
-            }else if($flag == 3){
-                header("Location:tenantPanel/tenantProfile.php");
-            }else if($flag == 4){
-                header("Location:guardPanel/guestStore.php");
-            }   
-        }      
+            $sql = "SELECT * FROM $table WHERE id = '$id' AND BINARY _password = '$pass'";
+            $result = mysqli_query($con,$sql);
+
+            $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
+            mysqli_free_result($result);
+            mysqli_close($con);
+
+            if(empty($record)){
+                $error = "Invalid ID or Password";
+            }else{
+                if($flag == 1){
+                    header("Location:adminPanel/adminAccount.php");
+                }else if($flag == 2){
+                    header("Location:flatOwnerPanel/flatOwnerProfile.php");
+                }else if($flag == 3){
+                    header("Location:tenantPanel/tenantProfile.php");
+                }else if($flag == 4){
+                    header("Location:guardPanel/guestStore.php");
+                }   
+            }
+        }
+
+          
+     
     }
 ?>
 
