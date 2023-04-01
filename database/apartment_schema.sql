@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2023 at 06:01 PM
+-- Generation Time: Apr 01, 2023 at 10:13 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -86,7 +86,8 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `name`, `nid`, `designation`, `address`, `phone`, `salary`, `_status`, `adminId`, `start_time`, `end_time`) VALUES
-('E100', 'Abdul Aziz', 'BGD000999', 'Security Guard', 'Uzirpur,Barishal', '0112223', 8000, 1, 'A100', '2022-12-01', NULL);
+('E100', 'Abdul Aziz', 'BGD000999', 'Security Guard', 'Uzirpur,Barishal', '0112223', 8000, 1, 'A100', '2022-12-01', NULL),
+('E101', 'Kamal Mia', 'BGD234999', 'Security Guard', 'Chorpokkhimari,Sherpur', '0112345', 7500, 1, 'A100', '2023-11-11', NULL);
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,9 @@ CREATE TABLE `flatowner` (
 --
 
 INSERT INTO `flatowner` (`id`, `name`, `nid`, `address`, `phone`, `_status`, `_password`) VALUES
-('F100', 'Rakib Khan', 'BGD100200', 'RotonPur,Noakhali', '0112233', 1, 'F1234');
+('F100', 'Rakib Khan', 'BGD100200', 'RotonPur,Noakhali', '0112233', 1, 'F1234'),
+('F101', 'Abir Khan', 'BGD100201', 'Sodor,Gopalgonj', '0112232', 1, 'F1234'),
+('F102', 'Sojib Ahmed', 'BGD112201', 'Bhayadanga,Sherpur', '0112245', 1, 'F1234');
 
 -- --------------------------------------------------------
 
@@ -127,7 +130,9 @@ CREATE TABLE `flats` (
 --
 
 INSERT INTO `flats` (`id`, `ownerId`) VALUES
-('1A', 'F100');
+('1A', 'F100'),
+('2A', 'F101'),
+('3B', 'F102');
 
 -- --------------------------------------------------------
 
@@ -146,7 +151,8 @@ CREATE TABLE `guard` (
 --
 
 INSERT INTO `guard` (`id`, `employee_Id`, `_password`) VALUES
-('G100', 'E100', 'G1234');
+('G100', 'E100', 'G1234'),
+('G101', 'E101', 'G1234');
 
 -- --------------------------------------------------------
 
