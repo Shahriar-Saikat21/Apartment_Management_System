@@ -5,7 +5,7 @@
     
 
     <div class="container">
-          <h1>Guard Panel - Guest Search Section</h1>  
+          <h1>Guard Panel - Guest Search </h1>  
     </div>
     
 </body>
