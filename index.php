@@ -76,7 +76,7 @@
             <div class="logo my-3">
                 <h1>Safe Home</h1>
             </div>
-        </div>
+        </div>x
         <div class="container">
             <div class="row">
                 <div class="col-7"></div>
