@@ -20,3 +20,24 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
+
+.head{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-top: 60px;
+}
+
+.pid{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.btn-primary{
+    background-color: #47B5FF !important;
+    border: none;
+}
+
+.btn-primary:hover{
+    background-color: #1363DF !important;
+}
