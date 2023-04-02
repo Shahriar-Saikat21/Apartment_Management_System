@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2023 at 10:13 AM
+-- Generation Time: Apr 02, 2023 at 06:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -131,6 +131,7 @@ CREATE TABLE `flats` (
 
 INSERT INTO `flats` (`id`, `ownerId`) VALUES
 ('1A', 'F100'),
+('1B', 'F100'),
 ('2A', 'F101'),
 ('3B', 'F102');
 
@@ -164,7 +165,8 @@ CREATE TABLE `guest` (
   `flat_id` varchar(20) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL
+  `phone` varchar(20) DEFAULT NULL,
+  `_time` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -308,7 +310,8 @@ ALTER TABLE `guard`
 -- Constraints for table `guest`
 --
 ALTER TABLE `guest`
-  ADD CONSTRAINT `guest_ibfk_1` FOREIGN KEY (`flat_id`) REFERENCES `flats` (`id`);
+  ADD CONSTRAINT `guest_ibfk_1` FOREIGN KEY (`flat_id`) REFERENCES `flats` (`id`),
+  ADD CONSTRAINT `guest_ibfk_2` FOREIGN KEY (`flat_id`) REFERENCES `flats` (`id`);
 
 --
 -- Constraints for table `message`
