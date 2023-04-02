@@ -6,7 +6,7 @@
         $address = htmlspecialchars($_POST['address']);
         $phone =htmlspecialchars($_POST['phone']);
 
-        $sql = "INSERT INTO `guest` VALUES ('$fId','$name','$address','$phone',CURRENT_DATE())";
+        $sql = "INSERT INTO `guest` VALUES ('$fId','$name','$address','$phone',CURRENT_DATE(),NOW())";
         $result = mysqli_query($con,$sql);
 
         if($result){

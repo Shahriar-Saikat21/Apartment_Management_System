@@ -25,7 +25,7 @@
                         <option value="<?=$value['id'];?>"><?php echo htmlspecialchars($value['id']);?></option>
                     <?php }?>
                 </select>
-                <div class="mb-3">
+                <div class="mb-3 mt-2">
                     <label for="exampleInputEmail1" class="form-label">Guest Name</label>
                     <input type="text" name="name" class="form-control" id="exampleInputEmail1">
                 </div>
