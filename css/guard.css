@@ -27,6 +27,10 @@
     margin-top: 60px;
 }
 
+.head2{
+    font-family: 'Roboto', sans-serif !important;
+}
+
 .btn-primary{
     background-color: #47B5FF !important;
     border: none;
