@@ -1,11 +1,16 @@
 <?php
     include('databaseConnection.php');
 
+    session_start();
+
     $error = "";
+    
 
     if(isset($_POST['submit'])){
         $id = htmlspecialchars($_POST['userId']);
         $pass = htmlspecialchars($_POST['pass']);
+
+        $_SESSION['id'] = htmlspecialchars($_POST['userId']);
 
         $table = "";
         $flag = "";
