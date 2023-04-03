@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2023 at 10:13 AM
+-- Generation Time: Apr 02, 2023 at 04:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -131,6 +131,7 @@ CREATE TABLE `flats` (
 
 INSERT INTO `flats` (`id`, `ownerId`) VALUES
 ('1A', 'F100'),
+('1B', 'F100'),
 ('2A', 'F101'),
 ('3B', 'F102');
 
@@ -164,8 +165,23 @@ CREATE TABLE `guest` (
   `flat_id` varchar(20) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL
+  `phone` varchar(20) DEFAULT NULL,
+  `_date` date NOT NULL,
+  `_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `guest`
+--
+
+INSERT INTO `guest` (`flat_id`, `name`, `address`, `phone`, `_date`, `_time`) VALUES
+('1A', 'Shifty', 'Dhaka', '000222', '2023-04-02', '00:00:00'),
+('1A', 'alif', 'asas', '1111', '2023-04-02', '00:00:00'),
+('1A', 'alif', 'aaaa', '1111', '2023-04-02', '00:00:00'),
+('2A', 'shoishob', 'Moghbazar', '555889', '2023-04-02', '00:00:00'),
+('3B', 'Brishty', 'Chittagong', '654111', '2023-04-02', '00:00:00'),
+('1B', 'Atika', 'Bonosree', '000111', '2023-04-02', '00:00:00'),
+('2A', 'shahriar', 'Rampura', '444555', '2023-04-02', '19:49:03');
 
 -- --------------------------------------------------------
 
@@ -253,7 +269,7 @@ ALTER TABLE `guard`
 -- Indexes for table `guest`
 --
 ALTER TABLE `guest`
-  ADD PRIMARY KEY (`flat_id`);
+  ADD KEY `flat_ID_Cons` (`flat_id`);
 
 --
 -- Indexes for table `message`
