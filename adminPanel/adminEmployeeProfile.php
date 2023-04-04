@@ -3,11 +3,24 @@
     <?php include('adminHeader.php'); 
         include('../databaseConnection.php');
         if(isset($_POST['submit'])){
-            $gId = htmlspecialchars($_POST['id']);
-            $eId = htmlspecialchars($_POST['e_id']);
-            $password = htmlspecialchars($_POST['password']);
+            $id = htmlspecialchars($_POST['id']);
+            $name = htmlspecialchars($_POST['name']);
+            $nid = htmlspecialchars($_POST['nid']);
+            $designation = htmlspecialchars($_POST['designation']);
+            $status = (int)htmlspecialchars($_POST['status']);
+            $address = htmlspecialchars($_POST['address']);
+            $phone = htmlspecialchars($_POST['phone']);
+            $salary = (int)htmlspecialchars($_POST['salary']);
+            $a_id= htmlspecialchars($_POST['a_id']);
+            $join = date('Y-m-d', strtotime($_POST['start'])); 
+            $ex = date('Y-m-d', strtotime($_POST['end'])); 
+            $pic = addslashes($_FILES['pic']['tmp_name']);
+            $pic_name = addslashes($_FILES['pic']['tmp_name']);
+            $pic = file_get_contents($pic);
+            $pic = base64_encode($pic);
     
-            $sql = "INSERT INTO `guard` VALUES ('$gId','$eId','$password')";
+            $sql = "INSERT INTO `employee` VALUES ('$id','$name','$nid','$designation',
+                    '$address','$phone','$salary','$status','$a_id','$join','$ex','$pic')";
             $result = mysqli_query($con,$sql);
     
             if($result){
@@ -32,7 +45,7 @@
     <div class="container">
         <h1 class="head text-center">Create Employee Profile</h1>  
         <div class="d-flex justify-content-center mt-4">
-            <form action="adminEmployeeProfile.php" method="POST" class="w-50 ">
+            <form action="adminEmployeeProfile.php" method="POST" class="w-50" enctype="multipart/form-data">
                 <div class="mb-3 mt-2">
                     <label for="exampleInputEmail1" class="form-label">Employee ID</label>
                     <input type="text" name="id" class="form-control" id="exampleInputEmail1" required>
@@ -83,7 +96,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Image</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" id="formFile" name="pic">
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary mb-5">Create</button>
             </form>
