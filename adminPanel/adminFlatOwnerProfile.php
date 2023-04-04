@@ -3,11 +3,22 @@
     <?php include('adminHeader.php'); 
         include('../databaseConnection.php');
         if(isset($_POST['submit'])){
-            $gId = htmlspecialchars($_POST['id']);
-            $eId = htmlspecialchars($_POST['e_id']);
+            $id = htmlspecialchars($_POST['id']);
+            $name = htmlspecialchars($_POST['name']);
+            $nid = htmlspecialchars($_POST['nid']);
+            $status = (int)htmlspecialchars($_POST['status']);
+            $address = htmlspecialchars($_POST['address']);
+            $phone = htmlspecialchars($_POST['phone']);
             $password = htmlspecialchars($_POST['password']);
+            $buy = date('Y-m-d', strtotime($_POST['start'])); 
+            $sell = date('Y-m-d', strtotime($_POST['end'])); 
+            $pic = addslashes($_FILES['pic']['tmp_name']);
+            $pic_name = addslashes($_FILES['pic']['tmp_name']);
+            $pic = file_get_contents($pic);
+            $pic = base64_encode($pic);
     
-            $sql = "INSERT INTO `guard` VALUES ('$gId','$eId','$password')";
+            $sql = "INSERT INTO `flatowner` VALUES ('$id','$name ','$nid','$address',
+                    '$phone','$status','$password','$pic','$buy','$sell')";
             $result = mysqli_query($con,$sql);
     
             if($result){
@@ -32,7 +43,7 @@
     <div class="container">
         <h1 class="head text-center">Create Flat Owner Profile</h1>  
         <div class="d-flex justify-content-center mt-4">
-            <form action="adminFlatOwnerProfile.php" method="POST" class="w-50 ">
+            <form action="adminFlatOwnerProfile.php" method="POST" class="w-50 " enctype="multipart/form-data">
                 <div class="mb-3 mt-2">
                     <label for="exampleInputEmail1" class="form-label">FlatOwner ID</label>
                     <input type="text" name="id" class="form-control" id="exampleInputEmail1" required>
@@ -59,10 +70,6 @@
                     <input type="text" name="phone" class="form-control" id="exampleInputEmail1" required>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Salary</label>
-                    <input type="text" name="salary" class="form-control" id="exampleInputEmail1" required>
-                </div>
-                <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Password</label>
                     <input type="text" name="password" class="form-control" id="exampleInputEmail1" required>
                 </div>
@@ -76,7 +83,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Image</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" id="formFile" name="pic">
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary mb-5">Create</button>
             </form>

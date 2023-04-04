@@ -13,7 +13,7 @@
     <div class="container">
         <h1 class="head text-center">Create Tenant Profile</h1>  
         <div class="d-flex justify-content-center mt-4">
-            <form action="adminTenantProfileFunc.php" method="POST" class="w-50 ">
+            <form action="adminTenantProfileFunc.php" method="POST" class="w-50 " enctype="multipart/form-data">
                 <div class="mb-3 mt-2">
                     <label for="exampleInputEmail1" class="form-label">Tenant ID</label>
                     <input type="text" name="id" class="form-control" id="exampleInputEmail1" required>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Image</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" id="formFile" name="pic">
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary mb-5">Create</button>
             </form>
