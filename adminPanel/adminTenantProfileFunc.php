@@ -1,26 +1,25 @@
-<?php
+<?php include('adminHeader.php'); 
     include('../databaseConnection.php');
     if(isset($_POST['submit'])){
-        $fId = htmlspecialchars($_POST['flatId']);
-        $name = htmlspecialchars($_POST['name']);
-        $address = htmlspecialchars($_POST['address']);
-        $phone =htmlspecialchars($_POST['phone']);
+        $gId = htmlspecialchars($_POST['id']);
+        $eId = htmlspecialchars($_POST['e_id']);
+        $password = htmlspecialchars($_POST['password']);
 
-        $sql = "INSERT INTO `guest` VALUES ('$fId','$name','$address','$phone',CURRENT_DATE(),NOW())";
+        $sql = "INSERT INTO `guard` VALUES ('$gId','$eId','$password')";
         $result = mysqli_query($con,$sql);
 
         if($result){
             echo "
                 <script>
                     alert('Information has been stored !!');
-                    document.location.href = 'guestStore.php';
+                    document.location.href = 'adminAccount.php';
                 </script>
             ";
         }else{
             echo "
                 <script>
                     alert('Unsuccessful, Sometimes Goes Wrong !!');
-                    document.location.href = 'guestStore.php';
+                    document.location.href = 'adminAccount.php';
                 </script>
             ";
         }
