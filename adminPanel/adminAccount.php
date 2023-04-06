@@ -9,7 +9,8 @@
                 <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Flat Profile</h5>
-                    <p class="card-text">Create Flat Profile for Flat Owners</p>
+                    <p class="card-text">Create Flat Profile for Flat Owners.</br>
+                        Must has a flatowner profile first.</p>
                     <a href="adminFlatProfile.php" class="btn btn-primary">Create</a>
                 </div>
                 </div>
@@ -18,7 +19,8 @@
                 <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Flat Owner</h5>
-                    <p class="card-text">Create Profile for Flat Owners</p>
+                    <p class="card-text">Create Profile for Flat Owners.Store all informations Carefully.</br>
+                        Must Submit The NID Photocopy and Recent Photo.</p>
                     <a href="adminFlatOwnerProfile.php" class="btn btn-primary">Create</a>
                 </div>
                 </div>
@@ -29,7 +31,8 @@
                 <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Tenant</h5>
-                    <p class="card-text">Create Profile for Tenants</p>
+                    <p class="card-text">Create Profile for Tenants.Store all informations Carefully.</br>
+                        Must Submit The NID Photocopy and Recent Photo.</p>
                     <a href="adminTenantProfile.php" class="btn btn-primary">Create</a>
                 </div>
                 </div>
@@ -38,7 +41,8 @@
                 <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Employee</h5>
-                    <p class="card-text">Create Profile for Employees. Store all informations Carefully</p>
+                    <p class="card-text">Create Profile for Employees.Store all informations Carefully.</br>
+                        Must Submit The NID Photocopy and Recent Photo.</p>
                     <a href="adminEmployeeProfile.php" class="btn btn-primary">Create</a>
                 </div>
                 </div>
@@ -49,7 +53,7 @@
                 <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Guard</h5>
-                    <p class="card-text">Create Profile for Guards, Must has an Employee Account First</p>
+                    <p class="card-text">Create Profile for Guards.</p>
                     <a href="adminGuardProfile.php" class="btn btn-primary">Create</a>
                 </div>
                 </div>

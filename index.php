@@ -34,7 +34,7 @@
         if($flag==0){
             $error = "Invalid ID or Password";
         }else{
-            $sql = "SELECT * FROM $table WHERE id = '$id' AND BINARY _password = '$pass'";
+            $sql = "SELECT * FROM $table WHERE id = '$id' AND BINARY _password = '$pass' AND _status = 1";
             $result = mysqli_query($con,$sql);
 
             $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
@@ -54,10 +54,7 @@
                     header("Location:guardPanel/guestStore.php");
                 }   
             }
-        }
-
-          
-     
+        }     
     }
 ?>
 
