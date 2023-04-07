@@ -5,7 +5,7 @@
     <title>Safe Home || Tenant</title>
     <link rel="icon" type="image/png" href="../image/12.png">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/flatOwner.css">
+    <link rel="stylesheet" href="../css/tenant.css">
 </head>
 <body class="bodyBg">
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">

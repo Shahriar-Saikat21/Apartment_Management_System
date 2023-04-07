@@ -20,11 +20,8 @@
             $password = htmlspecialchars($_POST['password']);
             $rent = date('Y-m-d', strtotime($_POST['start'])); 
             $realese = date('Y-m-d', strtotime($_POST['end'])); 
-            $pic = addslashes($_FILES['pic']['tmp_name']);
-            $pic_name = addslashes($_FILES['pic']['tmp_name']);
-            $pic = file_get_contents($pic);
-            $pic = base64_encode($pic);
-    
+            $pic = addslashes(file_get_contents($_FILES['pic']['tmp_name']));
+
             $sqlTwo = "INSERT INTO `tenant` VALUES ('$id','$f_id','$name','$nid','$address',
                         '$phone','$status','$password','$pic','$rent','$realese')";
             $resultTwo = mysqli_query($con,$sqlTwo);
@@ -97,7 +94,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Upload Image</label>
-                    <input class="form-control" type="file" id="formFile" name="pic">
+                    <input class="form-control" type="file" id="formFile" name="pic" required>
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary mb-5">Create</button>
             </form>
