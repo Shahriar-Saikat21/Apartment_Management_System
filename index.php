@@ -1,11 +1,16 @@
 <?php
     include('databaseConnection.php');
 
+    session_start();
+
     $error = "";
+    
 
     if(isset($_POST['submit'])){
         $id = htmlspecialchars($_POST['userId']);
         $pass = htmlspecialchars($_POST['pass']);
+
+        $_SESSION['id'] = htmlspecialchars($_POST['userId']);
 
         $table = "";
         $flag = "";
@@ -29,7 +34,7 @@
         if($flag==0){
             $error = "Invalid ID or Password";
         }else{
-            $sql = "SELECT * FROM $table WHERE id = '$id' AND BINARY _password = '$pass'";
+            $sql = "SELECT * FROM $table WHERE id = '$id' AND BINARY _password = '$pass' AND _status = 1";
             $result = mysqli_query($con,$sql);
 
             $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
@@ -49,10 +54,7 @@
                     header("Location:guardPanel/guestStore.php");
                 }   
             }
-        }
-
-          
-     
+        }     
     }
 ?>
 

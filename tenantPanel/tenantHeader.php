@@ -5,10 +5,10 @@
     <title>Safe Home || Tenant</title>
     <link rel="icon" type="image/png" href="../image/12.png">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/flatOwner.css">
+    <link rel="stylesheet" href="../css/tenant.css">
 </head>
 <body class="bodyBg">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Safe Home | Tenant Panel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

@@ -20,3 +20,13 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
+
+.head{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-top: 70px;
+}
+
+.card-text{
+    margin-bottom: 2px !important;
+}

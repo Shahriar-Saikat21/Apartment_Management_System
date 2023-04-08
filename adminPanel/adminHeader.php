@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body class="bodyBg">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Safe Home | Admin Panel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
