@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('flatOwnerHeader.php'); 
+    <?php include('flatOwnerHeader.php'); 
     ?>
 
     <div class="container">
         <?php       
-    include('../databaseConnection.php');
+            include('../databaseConnection.php');
 
-    session_start();
-    $id = $_SESSION ['id'];
+            session_start();
+            $id = $_SESSION ['id'];
 
-    if(isset($_POST['submit'])){ 
-     
-        $fId = htmlspecialchars($_POST['flatId']);
-        $dob = date('Y-m-d', strtotime($_POST['date']));
-   
+            if(isset($_POST['submit'])){ 
+            
+                $fId = htmlspecialchars($_POST['flatId']);
+                $dob = date('Y-m-d', strtotime($_POST['date']));
+        
 
-    $sql = "SELECT * FROM `flats` inner join guest on guest.flat_id = flats.id where flat_id = '$fId' AND _date = '$dob' ";
-    $result = mysqli_query($con,$sql);
+            $sql = "SELECT * FROM `flats` inner join guest on guest.flat_id = flats.id where flat_id = '$fId' AND _date = '$dob' ";
+            $result = mysqli_query($con,$sql);
 
-    $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    mysqli_free_result($result);
+            $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
+            mysqli_free_result($result);
 
-    mysqli_close($con); 
-    }
- ?>
+            mysqli_close($con); 
+            }
+        ?>
 
 
         <h1 class="head text-center">Tenat's Daily Guest List</h1>
