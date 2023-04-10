@@ -47,6 +47,7 @@
                 <select class="form-select my-3" id="floatingSelect" name="e_id">
                     <option value="" disabled selected hidden>Select Employee ID</option>
                     <?php foreach($re as $value){ ?>
+                        <!-- should available only unregister s.guard id -->
                         <option value="<?=$value['id'];?>"><?php echo htmlspecialchars($value['id']);?></option>
                     <?php }?>
                 </select>
