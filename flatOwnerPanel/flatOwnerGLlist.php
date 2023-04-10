@@ -22,7 +22,7 @@
            
         <div class="d-flex justify-content-center mt-4">
             <form action="flatOwnerGlistFunc.php" method="POST" class="w-50 ">
-                <select class="form-select" id="floatingSelect" name="flatId">
+                <select class="form-select" id="floatingSelect" name="flatId" required>
                     <option value="" disabled selected hidden>Select Flat Id</option>
                     <?php foreach($record as $value){ ?>
                         <option value="<?=$value['id'];?>"><?php echo htmlspecialchars($value['id']);?></option>
@@ -30,7 +30,7 @@
                 </select>
                 <div class="form-group my-3">
                     <label for="">Date </label>
-                    <input type="date" name="date" class="form-control" />
+                    <input type="date" name="date" class="form-control" required/>
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary">Search</button>
             </form>

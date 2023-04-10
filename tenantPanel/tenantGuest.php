@@ -9,7 +9,7 @@
             <form action="tenantGuestFunc.php" method="POST" class="w-50 ">                
                 <div class="form-group my-3">
                     <label for="">Date </label>
-                    <input type="date" name="date" class="form-control" />
+                    <input type="date" name="date" class="form-control" required/>
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary">Search</button>
             </form>
