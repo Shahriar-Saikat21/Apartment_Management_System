@@ -21,7 +21,7 @@
           <h1 class="head text-center">flatOwner Panel - Guest Section</h1>  
            
         <div class="d-flex justify-content-center mt-4">
-            <form action="guardSearchFunc.php" method="POST" class="w-50 ">
+            <form action="flatOwnerGlistFunc.php" method="POST" class="w-50 ">
                 <select class="form-select" id="floatingSelect" name="flatId">
                     <option value="" disabled selected hidden>Select Flat Id</option>
                     <?php foreach($record as $value){ ?>

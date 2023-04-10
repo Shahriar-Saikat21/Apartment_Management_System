@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php include('guardHeader.php');
+<?php include('flatOwnerHeader.php'); 
+    ?>
+
+    <div class="container">
+        <?php       
     include('../databaseConnection.php');
 
-    $sql = "SELECT * FROM `flats` inner join `guest` on flats.flat_id = guest.flat_id ";
+    session_start();
+    $id = $_SESSION ['id'];
+
+    if(isset($_POST['submit'])){ 
+     
+        $fId = htmlspecialchars($_POST['flatId']);
+        $dob = date('Y-m-d', strtotime($_POST['date']));
+   
+
+    $sql = "SELECT * FROM `flats` inner join guest on guest.flat_id = flats.id where flat_id = '$fId' AND _date = '$dob' ";
     $result = mysqli_query($con,$sql);
 
     $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
     mysqli_free_result($result);
 
     mysqli_close($con); 
+    }
  ?>
 
-    <div class="container">
+
         <h1 class="head text-center">Guest List</h1>
         <p class="pid">Flat ID : <?php echo htmlspecialchars($fId)?></p>
         <p class="pid">Date : <?php echo htmlspecialchars($dob)?></p>
-        <?php foreach($users as $i){ ?>
+        <?php foreach($record as $i){ ?>
             <div class="card mb-3 ">
                 <div class="card-body">
                     <h5 class="card-title">Guest Name : <?php echo htmlspecialchars($i['name'])?></h5>
