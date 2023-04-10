@@ -27,7 +27,7 @@
  ?>
 
 
-        <h1 class="head text-center">Guest List</h1>
+        <h1 class="head text-center">Tenat's Daily Guest List</h1>
         <p class="pid">Flat ID : <?php echo htmlspecialchars($fId)?></p>
         <p class="pid">Date : <?php echo htmlspecialchars($dob)?></p>
         <?php foreach($record as $i){ ?>

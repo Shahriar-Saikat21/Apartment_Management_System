@@ -18,7 +18,7 @@
      mysqli_close($con); ?>
 
     <div class="container">
-          <h1 class="head text-center">flatOwner Panel - Guest Section</h1>  
+          <h1 class="head text-center">Tenat's Daily Guest List</h1>  
            
         <div class="d-flex justify-content-center mt-4">
             <form action="flatOwnerGlistFunc.php" method="POST" class="w-50 ">
