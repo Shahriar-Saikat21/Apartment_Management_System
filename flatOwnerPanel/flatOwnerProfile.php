@@ -2,9 +2,7 @@
 <html lang="en">
     <?php
 
-use LDAP\Result;
-
- include('flatOwnerHeader.php');
+        include('flatOwnerHeader.php');
         include('../databaseConnection.php'); 
         session_start();
 
@@ -18,7 +16,7 @@ use LDAP\Result;
             ON FO.id = F.ownerId
             INNER JOIN tenant AS T
             ON F.id = T.flat_Id
-            WHERE FO.id = '$id'";
+            WHERE FO.id = '$id' AND T._status = 1";
         $record = mysqli_query($con,$sql);
         $result = mysqli_fetch_all($record,MYSQLI_ASSOC);
         mysqli_free_result($record);
