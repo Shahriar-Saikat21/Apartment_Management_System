@@ -53,7 +53,7 @@
                     <label for="exampleInputEmail1" class="form-label">Tenant ID</label>
                     <input type="text" name="id" class="form-control" id="exampleInputEmail1" required>
                 </div>
-                <select class="form-select" id="floatingSelect" name="flatId">
+                <select class="form-select" id="floatingSelect" name="flatId" required>
                     <option value="" disabled selected hidden>Select Flat Id</option>
                     <?php foreach($record as $value){ ?>
                         <option value="<?=$value['id'];?>"><?php echo htmlspecialchars($value['id']);?></option>
@@ -67,7 +67,7 @@
                     <label for="exampleInputEmail1" class="form-label">NID No.</label>
                     <input type="text" name="nid" class="form-control" id="exampleInputEmail1" required>
                 </div>
-                <select class="form-select my-3" id="floatingSelect" name="status">
+                <select class="form-select my-3" id="floatingSelect" name="status" required>
                     <option value="" disabled selected hidden>Status</option>
                     <option value="1">Active</option>
                     <option value="0">Ex-Tenant</option>   
@@ -86,7 +86,7 @@
                 </div>
                 <div class="form-group my-3">
                     <label for="">Flat Hire Date </label>
-                    <input type="date" name="start" class="form-control" />
+                    <input type="date" name="start" class="form-control" required/>
                 </div>
                 <div class="form-group my-3">
                     <label for="">Flat Release Date </label>

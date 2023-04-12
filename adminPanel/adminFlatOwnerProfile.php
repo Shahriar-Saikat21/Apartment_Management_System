@@ -53,7 +53,7 @@
                     <label for="exampleInputEmail1" class="form-label">NID No.</label>
                     <input type="text" name="nid" class="form-control" id="exampleInputEmail1" required>
                 </div>
-                <select class="form-select my-3" id="floatingSelect" name="status">
+                <select class="form-select my-3" id="floatingSelect" name="status" required>
                     <option value="" disabled selected hidden>Status</option>
                     <option value="1">Active</option>
                     <option value="0">Ex-Flat Owner</option>   
@@ -72,7 +72,7 @@
                 </div>
                 <div class="form-group my-3">
                     <label for="">Buying Date </label>
-                    <input type="date" name="start" class="form-control" />
+                    <input type="date" name="start" class="form-control" required/>
                 </div>
                 <div class="form-group my-3">
                     <label for="">Selling Date </label>

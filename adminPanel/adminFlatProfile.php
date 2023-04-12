@@ -44,7 +44,7 @@
                     <label for="exampleInputEmail1" class="form-label">Flat ID</label>
                     <input type="text" name="id" class="form-control" id="exampleInputEmail1" required>
                 </div>
-                <select class="form-select my-3" id="floatingSelect" name="flatOwnerId">
+                <select class="form-select my-3" id="floatingSelect" name="flatOwnerId" required>
                     <option value="" disabled selected hidden>Select Flat Owner Id</option>
                     <?php foreach($re as $value){ ?>
                         <option value="<?=$value['id'];?>"><?php echo htmlspecialchars($value['id']);?></option>
