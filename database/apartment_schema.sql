@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2023 at 12:26 PM
+-- Generation Time: Apr 19, 2023 at 08:25 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -58,9 +58,16 @@ CREATE TABLE `bill` (
   `g_ref` varchar(50) DEFAULT NULL,
   `w_bill` float DEFAULT NULL,
   `w_ref` varchar(50) DEFAULT NULL,
-  `_month` varchar(20) DEFAULT NULL,
-  `_year` varchar(20) DEFAULT NULL
+  `_time` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`tenant_id`, `flat_id`, `rent`, `maintenance`, `e_bill`, `e_ref`, `g_bill`, `g_ref`, `w_bill`, `w_ref`, `_time`) VALUES
+('T100', '1A', 20000, 5000, 2345.5, 'dfsf', 1212, 'GAA45123', 1200, 'ii1234', '2023-01'),
+('T100', '1A', 20000, 5000, 1212, 'EW1234', 2345.5, 'GAA45123', 2323.4, 'ii1234', '2023-03');
 
 -- --------------------------------------------------------
 
@@ -251,7 +258,7 @@ ALTER TABLE `admin`
 -- Indexes for table `bill`
 --
 ALTER TABLE `bill`
-  ADD PRIMARY KEY (`tenant_id`,`flat_id`),
+  ADD PRIMARY KEY (`_time`),
   ADD KEY `flat_id` (`flat_id`);
 
 --
@@ -310,13 +317,6 @@ ALTER TABLE `tenant`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`ownerId`) REFERENCES `flatowner` (`id`);
-
---
--- Constraints for table `bill`
---
-ALTER TABLE `bill`
-  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`tenant_id`) REFERENCES `tenant` (`id`),
-  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`flat_id`) REFERENCES `flats` (`id`);
 
 --
 -- Constraints for table `employee`
