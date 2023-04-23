@@ -33,7 +33,7 @@
             if(!$result){
                 echo "
                     <script>
-                        alert('Unsuccessful, Sometimes Goes Wrong !!');
+                        alert('No records has been found !! !!');
                         document.location.href = '../adminPanel/adminSearch.php';
                     </script>
                 ";

@@ -16,7 +16,7 @@
                 ON flats.id = tenant.flat_Id
                 INNER JOIN flatowner
                 ON flats.ownerId = flatowner.id
-                WHERE flatowner._status = '$oSat' AND tenant._status = 'tSat'";
+                WHERE flats.id = '$fid' AND flatowner._status = '$oSat' AND tenant._status = 'tSat'";
             $record = mysqli_query($con,$sql);
 
             $result = mysqli_fetch_all($record,MYSQLI_ASSOC);
@@ -76,7 +76,6 @@
         <button class="btn btn-danger">Delete Flat Record</button>
         <a class="btn btn-outline-primary" href="../adminPanel/adminSearch.php" role="button">Back To Search</a>
     </div>
-    
     
     
 </body>
