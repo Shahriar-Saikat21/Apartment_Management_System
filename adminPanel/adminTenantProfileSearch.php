@@ -22,7 +22,7 @@
             if(!$result){
                 echo "
                     <script>
-                        alert('Unsuccessful, Sometimes Goes Wrong !!');
+                        alert('No record found !!');
                         document.location.href = '../adminPanel/adminSearch.php';
                     </script>
                 ";
@@ -49,7 +49,6 @@
                     <th scope="col">Leaving Date</th>
                     <th scope="col">Image</th>
                     <th scope="col">Action</th>
-                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,8 +70,7 @@
                             
                             ?></td>
                             <td><?php echo '<img src = "data:image;base64,'.base64_encode($i['image']).' " alt="..." >';?></td>
-                            <td><button class="btn btn-primary">Update</button></td>
-                            <td><button class="btn btn-danger">Delete</button></td>
+                            <td><a class="btn btn-primary" href="../adminPanel/adminTenantUpdate.php?id=<?php echo $i['id'];?>" role="button">Update</a></td>
                         </tr>
                 <?php } ?>
             </tbody>
