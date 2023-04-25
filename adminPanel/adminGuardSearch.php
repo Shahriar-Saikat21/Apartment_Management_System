@@ -78,8 +78,8 @@
                             
                             ?></td>
                             <td><?php echo '<img src = "data:image;base64,'.base64_encode($i['img']).' " alt="..." >';?></td>
-                            <td><button class="btn btn-primary">Update</button></td>
-                            <td><button class="btn btn-danger">Delete</button></td>
+                            <td><button class="btn btn-primary">Update</button></td>                            
+                            <td><a class="btn btn-danger" href="../adminPanel/adminGuardDelete.php?id=<?php echo $i['id'];?>" role="button">Delete</a></td>
                         </tr>
                 <?php } ?>
             </tbody>

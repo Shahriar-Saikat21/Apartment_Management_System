@@ -63,8 +63,8 @@
                             <td><?php echo $i['g_ref'];?></td>
                             <td><?php echo $i['total'];?></td>
                             <td><?php echo $i['_time'];?></td>
-                            <td><button class="btn btn-primary">Update</button></td>
-                            <td><button class="btn btn-danger">Delete</button></td>
+                            <td><a class="btn btn-primary" href="../adminPanel/adminBillUpdate.php?id=<?php echo $fid.'/'. $i['_time'];?>" role="button">Update Bill</a></td>
+                            <td><a class="btn btn-danger" href="../adminPanel/adminBillDelete.php?id=<?php echo $fid.'/'. $i['_time'];?>" role="button">Delete Bill</a></td>
                         </tr>
                 <?php } ?>
             </tbody>
