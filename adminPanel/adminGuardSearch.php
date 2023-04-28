@@ -78,7 +78,7 @@
                             
                             ?></td>
                             <td><?php echo '<img src = "data:image;base64,'.base64_encode($i['img']).' " alt="..." >';?></td>
-                            <td><button class="btn btn-primary">Update</button></td>                            
+                            <td><a class="btn btn-primary" href="../adminPanel/adminGuardUpdate.php?id=<?php echo $i['id'];?>" role="button">Update</a></td>                            
                             <td><a class="btn btn-danger" onclick="javascript:return confirm('Are you sure to delete this??');" href="../adminPanel/adminGuardDelete.php?id=<?php echo $i['id'];?>" role="button">Delete</a></td>
                         </tr>
                 <?php } ?>
