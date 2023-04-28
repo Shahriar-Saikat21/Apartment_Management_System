@@ -60,13 +60,6 @@
                         <h5 class="card-title">Employee</h5>
                         <div class="d-flex justify-content-center mt-4">
                             <form action="adminEmployeeProfileSearch.php" method="POST" class="w-50" enctype="multipart/form-data">
-                                <select class="form-select my-3" id="floatingSelect" name="designation" required>
-                                    <option value="" disabled selected hidden>Designation</option>
-                                    <option value="Security Guard">Security Guard</option>
-                                    <option value="Care Taker">Care Taker</option>
-                                    <option value="Technical">Technical</option>
-                                    <option value="Worker">Worker</option>     
-                                </select>
                                 <select class="form-select my-3" id="floatingSelect" name="status" required>
                                     <option value="" disabled selected hidden>Employees</option>
                                     <option value="1">Active</option>
