@@ -3,7 +3,7 @@
     <?php include('adminHeader.php'); 
         include('../databaseConnection.php');
 
-        $s = "SELECT * FROM `employee` WHERE _status = 1 AND designation = 'Security Guard'";
+        $s = "SELECT * FROM `employee` WHERE _status = 1 AND designation = 'Security Guard' AND id NOT IN (SELECT employee_Id FROM guard)";
         $r = mysqli_query($con,$s);
         $re = mysqli_fetch_all($r,MYSQLI_ASSOC);
         mysqli_free_result($r);

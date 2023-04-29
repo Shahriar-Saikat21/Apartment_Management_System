@@ -8,11 +8,11 @@
 
             $sql = "";
             if($status==1){
-                $sql = "SELECT * FROM `employee` WHERE _status = '$status' AND designation = '$post'";
+                $sql = "SELECT * FROM `employee` WHERE _status = '$status'";
             }else if($status==0){
-                $sql = "SELECT * FROM `employee` WHERE _status = '$status'AND designation = '$post'";
+                $sql = "SELECT * FROM `employee` WHERE _status = '$status'";
             }else{
-                $sql = "SELECT * FROM `employee`WHERE designation = '$post'";
+                $sql = "SELECT * FROM `employee`";
             }
 
             $record = mysqli_query($con,$sql);
@@ -42,6 +42,7 @@
             <thead>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Designation</th>
                     <th scope="col">NID</th>
                     <th scope="col">Address</th>
                     <th scope="col">Phone</th>
@@ -58,6 +59,7 @@
                         <tr>
                             <th scope="row"><?php echo $i['id'];?></th>
                             <td><?php echo $i['name'];?></td>
+                            <td><?php echo $i['designation'];?></td>
                             <td><?php echo $i['nid'];?></td>
                             <td><?php echo $i['address'];?></td>
                             <td><?php echo $i['phone'];?></td>
