@@ -8,11 +8,25 @@
         $senderId = $_SESSION['id'];
 
         $sql = "SELECT * FROM `message` WHERE receive_id = '$senderId'
-            ORDER BY _date,_time DESC";
+            ORDER BY _date DESC";
         $result = mysqli_query($con,$sql);
     
         $record = mysqli_fetch_all($result,MYSQLI_ASSOC);
         mysqli_free_result($result);
+
+        $sqlTwo = "SELECT COUNT(id) AS count FROM `message` WHERE receive_id = '$senderId'";
+        $resultTwo = mysqli_query($con,$sqlTwo);
+    
+        $recordTwo = mysqli_fetch_all($resultTwo,MYSQLI_ASSOC);
+        mysqli_free_result($resultTwo);
+
+        $count = '';
+
+        if(!$recordTwo){
+            $count = 0;
+        }else{
+            $count = $recordTwo[0]['count'];
+        }
 
         mysqli_close($con);
     ?>
@@ -21,6 +35,7 @@
         <h1 class="head text-center">Received Message </h1>
         <div>
             <a class="btn btn-outline-primary" href="../adminPanel/adminMsg.php" role="button">Back To Message</a>
+            <p class = "my-2">Total Received: <?php echo $count;?></p>
         </div> 
         <table class="table table-striped">
             <thead>

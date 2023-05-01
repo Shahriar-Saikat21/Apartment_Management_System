@@ -80,8 +80,6 @@
                         <h5 class="card-title">Other Informations</h5>
                         <p class="card-text">Rent Date: <?php echo $result[0]['rent'];?></p>
                         <p class="card-text">Rent Period: <?php echo $result[0]['timePeriod'];?> Days</p>
-                        <p class="card-text">More Emergency Contact: <i>Manager : 01022 - 001122 ,</i>
-                         <i>CareTaker : 01022 - 0011277 </i> </p>
                     </div>
                 </div>
             </div>

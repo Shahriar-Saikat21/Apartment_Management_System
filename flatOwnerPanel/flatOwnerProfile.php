@@ -35,7 +35,7 @@
     <div class="container">
         <h1 class="head text-center">Your Detail Information</h1>
         <div class="row my-5">
-            <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="col-sm-12 mb-3 mb-sm-0">
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
@@ -51,19 +51,6 @@
                                 <p class="card-text">Phone: <?php echo $result[0]['ownerPhone'];?></p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <div class="card px-5">
-                    <div class="card-body">
-                        <!-- should come from DB -->
-                        <h5 class="card-title"><i> Emgergency Contact </i></h5>
-                        <p class="card-text">Manager : 01022 - 001122</p>
-                        <p class="card-text">CareTaker : 01022 - 001127</p>
-                        <p class="card-text">Electrician : 01022 - 001789</p>
-                        <p class="card-text">Fire Service : 01022 - 012344</p>
-                        <p class="card-text">CareTaker : 01022 - 088995</p>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php 
-        include('tenantHeader.php'); 
+        include('flatOwnerHeader.php'); 
         include('../databaseConnection.php');
 
         session_start();
@@ -34,7 +34,7 @@
     <div class="container">
         <h1 class="head text-center">Received Message </h1>
         <div>
-            <a class="btn btn-outline-primary" href="../tenantPanel/tenantMsg.php" role="button">Back To Message</a>
+            <a class="btn btn-outline-primary mb-3" href="../flatOwnerPanel/flatOwnerMsg.php" role="button">Back To Message</a>
             <p class = "my-2">Total Received: <?php echo $count;?></p>
         </div> 
         <table class="table table-striped">
