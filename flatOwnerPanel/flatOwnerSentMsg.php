@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php 
-        include('adminHeader.php'); 
+        include('flatOwnerHeader.php'); 
         include('../databaseConnection.php');
 
         session_start();
@@ -34,7 +34,7 @@
     <div class="container">
         <h1 class="head text-center">Sent Message </h1>
         <div>
-            <a class="btn btn-outline-primary" href="../adminPanel/adminMsg.php" role="button">Back To Message</a>
+            <a class="btn btn-outline-primary mb-3" href="../flatOwnerPanel/flatOwnerMsg.php" role="button">Back To Message</a>
             <p class = "my-2">Total Sent: <?php echo $count;?></p>
         </div> 
         <table class="table table-striped">
@@ -56,7 +56,7 @@
                             <td><?php echo $i['_date'];?></td>
                             <td><?php echo $i['_time'];?></td>
                             <td><?php echo $i['body'];?></td>
-                            <td><a class="btn btn-danger" onclick="javascript:return confirm('Are you sure to delete this??');" href="../adminPanel/adminSentMsgDelete.php?id=<?php echo $i['id'];?>" role="button">Delete</a></td>
+                            <td><a class="btn btn-danger" onclick="javascript:return confirm('Are you sure to delete this??');" href="../flatOwnerPanel/flatOwnerSentMsgDelete.php?id=<?php echo $i['id'];?>" role="button">Delete</a></td>
                         </tr>
                 <?php } ?>
             </tbody>
