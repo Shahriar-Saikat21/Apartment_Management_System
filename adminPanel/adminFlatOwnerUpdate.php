@@ -82,7 +82,6 @@
             $password = htmlspecialchars($_POST['password']);
             $buy = date('Y-m-d', strtotime($_POST['start'])); 
             $sell = date('Y-m-d', strtotime($_POST['end'])); 
-            $pic = addslashes(file_get_contents($_FILES['pic']['tmp_name']));
 
             $sql = "UPDATE `flatowner` SET  name = '$name ',nid = '$nid',address ='$address',
                 phone = '$phone',_status = '$status',_password = '$password',
